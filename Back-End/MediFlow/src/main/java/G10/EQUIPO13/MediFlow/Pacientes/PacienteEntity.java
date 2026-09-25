@@ -7,6 +7,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,12 +24,22 @@ public class PacienteEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private String nombre;
 
     private String diagnostico;
 
+    @Column(columnDefinition = "TINYINT UNSIGNED")
+    private Short edad;
+
+    private String rut;
+
+
+    private LocalDateTime fechaRegistro;
+
+    private LocalDateTime fechaActualizacion;
+
     @Enumerated(EnumType.STRING)
-    private Ubicacion ubicacion;
+    private Estado estado;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private UsuariosEntity usuario;

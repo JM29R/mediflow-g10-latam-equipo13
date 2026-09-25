@@ -52,7 +52,7 @@ public class UsuariosService {
     }
 
     public UsuarioResponse findByName(String name){
-        UsuariosEntity entity = repository.findByName(name).orElse(null);
+        UsuariosEntity entity = repository.findByNombre(name).orElse(null);
         return mapper.ToDTO(entity);
     }
 

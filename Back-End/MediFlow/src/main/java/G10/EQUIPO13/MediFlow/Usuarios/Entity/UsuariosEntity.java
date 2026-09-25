@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,12 +17,21 @@ public class UsuariosEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+    private Long id;
 
-    public String name;
-    public String password;
+    private String nombre;
+    private String password;
+
+    private String matricula;
+    private Boolean activo;
+
+    @Column(name = "fecha_registro", nullable = false, insertable = false, updatable = false)
+    private LocalDateTime fechaRegistro;
+
+    @Column(name = "fecha_actualizacion", insertable = false, updatable = false)
+    private LocalDateTime fechaActualizacion;
 
     @Enumerated(EnumType.STRING)
-    public Roles rol;
+    private Roles rol;
 
 }

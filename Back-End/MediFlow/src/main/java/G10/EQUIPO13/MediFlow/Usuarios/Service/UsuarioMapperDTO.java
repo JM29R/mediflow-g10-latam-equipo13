@@ -12,7 +12,7 @@ public class UsuarioMapperDTO {
     public UsuariosEntity ToEntityRegister(UsuarioRegister request){
 
         UsuariosEntity entity = new UsuariosEntity();
-        entity.setName(request.name());
+        entity.setNombre(request.name());
         entity.setPassword(request.password());
         entity.setRol(Roles.NO_ASIGNADO);
 
@@ -20,7 +20,7 @@ public class UsuarioMapperDTO {
     }
 
     public UsuarioResponse ToDTO(UsuariosEntity entity){
-        UsuarioResponse response = new UsuarioResponse(entity.getId(), entity.getName(),String.valueOf(entity.getRol()));
+        UsuarioResponse response = new UsuarioResponse(entity.getId(), entity.getNombre(),String.valueOf(entity.getRol()));
         return response;
     }
 
