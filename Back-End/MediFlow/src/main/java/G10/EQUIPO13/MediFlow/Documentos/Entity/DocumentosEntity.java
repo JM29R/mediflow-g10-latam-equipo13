@@ -1,17 +1,13 @@
-package G10.EQUIPO13.MediFlow.Documentos;
+package G10.EQUIPO13.MediFlow.Documentos.Entity;
 
 import G10.EQUIPO13.MediFlow.Usuarios.Entity.UsuariosEntity;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter

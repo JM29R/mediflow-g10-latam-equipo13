@@ -1,16 +1,30 @@
 package G10.EQUIPO13.MediFlow.Documentos.controller;
 
-import G10.EQUIPO13.MediFlow.Documentos.DocumentosEntity;
+import G10.EQUIPO13.MediFlow.AiClient.AIResponse;
+import G10.EQUIPO13.MediFlow.Documentos.Entity.DocumentosEntity;
 import G10.EQUIPO13.MediFlow.Usuarios.Entity.UsuariosEntity;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDateTime;
 
 @Component
 public class DocumentosDTOMapper {
 
-    public DocumentosEntity toEntity(DocumentosRequest documentosRequest, UsuariosEntity usuariosEntity){
+    public DocumentosEntity toEntity(AIResponse aiResponse, UsuariosEntity usuariosEntity){
 
-        return null;
 
+        DocumentosEntity response= new DocumentosEntity();
+
+                response.setTipo(aiResponse.tipo());
+                response.setContenido(aiResponse.contenido());
+                response.setEspecialidad(aiResponse.especialidad());
+                response.setDocumentoId(aiResponse.documentoId());
+                response.setScore(aiResponse.score());
+                response.setUsuario(usuariosEntity);
+                response.setFechaRegistro(LocalDateTime.now());
+                response.setFechaActualizacion(LocalDateTime.now());
+
+        return response;
 
     }
 
