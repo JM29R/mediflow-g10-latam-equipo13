@@ -5,6 +5,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class AIClient {
 
-    
+    //conexion con python
 
 }
