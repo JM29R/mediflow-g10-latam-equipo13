@@ -15,7 +15,7 @@ public class PacientesController {
     private final PacienteService service;
 
 
-    @PreAuthorize("hasRole('ADMIN', 'PERSONAL' )")
+    @PreAuthorize("hasAnyRole('ADMIN', 'PERSONAL' )")
     @PostMapping("/create")
     public ResponseEntity<PacienteResponse> create(@RequestBody PacienteRequest pacienteRequest){
 
@@ -23,7 +23,7 @@ public class PacientesController {
 
     }
 
-    @PreAuthorize("hasRole('ADMIN', 'PERSONAL' )")
+    @PreAuthorize("hasAnyRole('ADMIN', 'PERSONAL' )")
     @PostMapping("/update/{id}")
     public ResponseEntity<PacienteResponse> update(@RequestBody PacienteRequest pacienteRequest,  @PathVariable Long id){
 
@@ -32,14 +32,14 @@ public class PacientesController {
 
     }
 
-    @PreAuthorize("hasRole('ADMIN', 'PERSONAL' , 'AUDITOR' )")
+    @PreAuthorize("hasAnyRole('ADMIN', 'PERSONAL', 'AUDITOR')")
     @GetMapping("/findall")
     ResponseEntity<List<PacienteResponse>> findAll(){
 
         return ResponseEntity.ok(service.findAll());
     }
 
-    @PreAuthorize("hasRole('ADMIN', 'PERSONAL' , 'AUDITOR' )")
+    @PreAuthorize("hasAnyRole('ADMIN', 'PERSONAL' , 'AUDITOR' )")
     @GetMapping("/findbyid/{id}")
     ResponseEntity<PacienteResponse> findById(@PathVariable Long id){
 

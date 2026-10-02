@@ -17,12 +17,11 @@ public class PacientesDTOMapper {
 
         PacienteEntity pacienteEntity = new PacienteEntity();
         pacienteEntity.setNombre(aiResponse.nombrePaciente());
-        pacienteEntity.setDiagnostico(aiResponse.Diagnostico());
+        pacienteEntity.setDiagnostico(aiResponse.DiagnosticoPaciente());
         pacienteEntity.setEdad(aiResponse.edad());
         pacienteEntity.setRut(aiResponse.rut());
         pacienteEntity.setFechaRegistro(LocalDateTime.now());
         pacienteEntity.setFechaActualizacion(LocalDateTime.now());
-        pacienteEntity.setEstado(aiResponse.estado());
         pacienteEntity.setUsuario(user);
 
         return pacienteEntity;
