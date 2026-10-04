@@ -64,7 +64,7 @@ public class DocumentosController {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable @Min(1) Long id){
         documentosService.deleteById(id);
         return ResponseEntity.ok().build();
